@@ -1,0 +1,10 @@
+services:
+  app:
+    build:
+      context: .
+    image: devops-platform:v1
+    container_name: devops-app
+    ports:
+      - "5001:5001"
+    restart: unless-stopped
+

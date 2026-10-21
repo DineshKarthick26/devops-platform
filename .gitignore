@@ -4,3 +4,14 @@ __pycache__/
 .env
 .pytest__cache/
 logs/
+# Terraform downloaded providers and local working data
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+
+# Terraform state and local working data
+*.tfstate
+*.tfstate.*
+**/.terraform/*
