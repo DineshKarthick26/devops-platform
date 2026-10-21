@@ -32,17 +32,16 @@ pipeline {
         }
 
         stage('Code Quality - Ruff') {
-            steps {
-                sh '''
-                    docker run --rm \
-                      -v "$WORKSPACE:/workspace" \
-                      -w /workspace \
-                      python:3.12-slim \
-                      sh -c "pip install --no-cache-dir ruff && ruff check app.py tests"
-                '''
-            }
-        }
-
+    steps {
+        sh '''
+            docker run --rm \
+              -v "$WORKSPACE:/workspace" \
+              -w /workspace \
+              python:3.12-slim \
+              sh -c "pip install --no-cache-dir ruff && ruff check --target-version=py39 app.py tests"
+        '''
+    }
+}
         stage('Automated Tests') {
             steps {
                 sh '''
